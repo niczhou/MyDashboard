@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/iv_lamp_belt"
+        android:layout_width="28dp"
+        android:layout_height="35dp"
+        android:src="@drawable/belt"/>
+    <ImageView
+        android:id="@+id/iv_lamp_belt2"
+        android:layout_width="28dp"
+        android:layout_height="35dp"
+        android:src="@drawable/belt2"/>
+    <ImageView
+        android:id="@+id/iv_lamp_temper"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/jiyou"/>
+    <ImageView
+        android:id="@+id/iv_lamp_handbrake"
+        android:layout_width="28dp"
+        android:layout_height="35dp"
+        android:src="@drawable/hand_brake"/>
+    <ImageView
+        android:id="@+id/iv_lamp_highbeam"
+        android:layout_width="28dp"
+        android:layout_height="35dp"
+        android:src="@drawable/high_beam"/>
+    <ImageView
+        android:id="@+id/iv_lamp_light"
+        android:layout_width="28dp"
+        android:layout_height="35dp"
+        android:src="@drawable/light"/>
+    <ImageView
+        android:id="@+id/iv_lamp_foglamp"
+        android:layout_width="28dp"
+        android:layout_height="35dp"
+        android:src="@drawable/front_foglamp"/>
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layout_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#003b3b33"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <TextView
+            android:id="@+id/tv_setting"
+            android:text="设置"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="#fff"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/tv_display"
+            android:text="显示"
+            android:background="#00000000"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="#fff"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv_connect"
+            android:text="连接"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="#fff"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_container"
+        android:background="#367878d7"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/layout_tabs" />
+
+</RelativeLayout>
