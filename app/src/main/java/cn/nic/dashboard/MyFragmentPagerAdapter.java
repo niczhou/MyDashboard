@@ -3,6 +3,7 @@ package cn.nic.dashboard;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -47,15 +48,16 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
         if(position==0 && flag==true) {
             Fragment f = (Fragment) super.instantiateItem(container, position);
             String fTag=f.getTag();
+            Log.d("nicdebug",fTag);
             fm.beginTransaction().remove(f).commit();
-            f = fragmentList.get(0);
+            f = fragmentList.get(position);
             fm.beginTransaction().add(container.getId(),f, fTag);
             fm.beginTransaction().attach(f);
             fm.beginTransaction().commit();
-            flag=false;
+            toggleFlag();
             return  f;
         }else {
-            return (Fragment)super.instantiateItem(container, position);
+            return super.instantiateItem(container, position);
         }
     }
 

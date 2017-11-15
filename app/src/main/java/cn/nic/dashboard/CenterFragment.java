@@ -126,9 +126,13 @@ public class CenterFragment extends Fragment {
                             currentTab = (currentTab + 1) % fragmentList.size();
                             break;
                         case "ok":
-                            fpAdapter.toggleFlag();
-                            timeSettingFragment=new TimeSettingFragment();
-                            fpAdapter.replaceFragment(0,timeSettingFragment);
+//                            switch (currentTab){
+//                                case 0:
+                                    fpAdapter.toggleFlag();
+                                    timeSettingFragment=new TimeSettingFragment();
+                                    fpAdapter.replaceFragment(0,timeSettingFragment);
+//                                    break;
+//                            }
                             break;
                     }
                 }
