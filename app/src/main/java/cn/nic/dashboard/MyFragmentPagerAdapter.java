@@ -53,7 +53,6 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
         if(flag) {
             Fragment f = (Fragment) super.instantiateItem(container, position);
             String fTag=f.getTag();
-//            Log.d("nicdebug",fTag);
 //            need to commit update UI;
             fm.beginTransaction().remove(f).commit();
             f = fragmentList.get(position);
