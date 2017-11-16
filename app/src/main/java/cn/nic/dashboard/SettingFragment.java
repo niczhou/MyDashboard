@@ -103,4 +103,6 @@ public class SettingFragment extends Fragment {
         tvOptionList.get(optionID).setTextColor(getResources().getColor(R.color.colorTabSelected));
     }
 
+    public int getCurrentOption(){return currentOption;}
+
 }

@@ -12,17 +12,18 @@ import java.util.List;
  * Created by nic on 2017/11/1.
  */
 
-public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
+public class DynamicFragmentPagerAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragmentList;
     private FragmentManager fm;
     private boolean flag=false;
+    private boolean isAtSetting=true;
 
-    public MyFragmentPagerAdapter(FragmentManager fm) {
+    public DynamicFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
         this.fm=fm;
     }
 
-    public MyFragmentPagerAdapter(FragmentManager fm,List<Fragment> fragmentList) {
+    public DynamicFragmentPagerAdapter(FragmentManager fm, List<Fragment> fragmentList) {
         super(fm);
         this.fm=fm;
         this.fragmentList=fragmentList;
@@ -53,12 +54,13 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
         if(flag) {
             Fragment f = (Fragment) super.instantiateItem(container, position);
             String fTag=f.getTag();
-//            need to commit update UI;
+//           commit to update UI;
             fm.beginTransaction().remove(f).commit();
             f = fragmentList.get(position);
             fm.beginTransaction().attach(f).commit();
             fm.beginTransaction().add(container.getId(),f, fTag).commit();
-            toggleFlag();
+            flag=false;
+            isAtSetting=(isAtSetting?false:true);
             return  f;
         }else {
             return super.instantiateItem(container, position);
@@ -71,7 +73,9 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
     }
 
-    public void toggleFlag() {
-        flag=(flag?false:true);
+    public void setFlag(boolean b){
+        flag=b;
     }
+    public boolean getIsAtSetting(){return isAtSetting;}
+
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#feaa"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageButton
+        android:id="@+id/ib_back"
+        android:gravity="left"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:src="@mipmap/ic_launcher"/>
+    <TextView
+        android:text="牵引力设置"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="灯光设置"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

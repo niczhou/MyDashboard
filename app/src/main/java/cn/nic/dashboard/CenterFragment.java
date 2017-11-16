@@ -37,7 +37,7 @@ public class CenterFragment extends Fragment {
     private SettingFragment settingFragment;
     private TimeSettingFragment timeSettingFragment;
 
-    private MyFragmentPagerAdapter fpAdapter;
+    private DynamicFragmentPagerAdapter fpAdapter;
 
     private FragmentManager fragmentManager;
     private LocalBroadcastManager localBroadcastManager;
@@ -54,7 +54,7 @@ public class CenterFragment extends Fragment {
         initViews();
         initList();
         fragmentManager=getFragmentManager();
-        fpAdapter=new MyFragmentPagerAdapter(fragmentManager,fragmentList);
+        fpAdapter=new DynamicFragmentPagerAdapter(fragmentManager,fragmentList);
         vp_container.setAdapter(fpAdapter);
         vp_container.setCurrentItem(currentTab);
         toggleTab(currentTab);
@@ -129,9 +129,29 @@ public class CenterFragment extends Fragment {
                         case "ok":
                             switch (currentTab){
                                 case 0:
-                                    fpAdapter.toggleFlag();
-                                    timeSettingFragment=new TimeSettingFragment();
-                                    fpAdapter.replaceFragment(0,timeSettingFragment);
+                                    switch (settingFragment.getCurrentOption()) {
+                                        case 0:
+                                            if (fpAdapter.getIsAtSetting()) {
+                                                fpAdapter.setFlag(true);
+                                                timeSettingFragment = new TimeSettingFragment();
+                                                fpAdapter.replaceFragment(currentTab, timeSettingFragment);
+                                            } else {
+                                                fpAdapter.setFlag(true);
+                                                fpAdapter.replaceFragment(currentTab, settingFragment);
+                                            }
+                                            break;
+                                        case 1:
+                                            if (fpAdapter.getIsAtSetting()) {
+                                                fpAdapter.setFlag(true);
+                                                VehicleSettingFragment vehicleSettingFragment = new VehicleSettingFragment();
+                                                fpAdapter.replaceFragment(currentTab, vehicleSettingFragment);
+                                            } else {
+                                                fpAdapter.setFlag(true);
+                                                fpAdapter.replaceFragment(currentTab, settingFragment);
+                                            }
+                                            break;
+
+                                    };
                                     break;
                                 case 1:
 
