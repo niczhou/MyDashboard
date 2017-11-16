@@ -67,6 +67,7 @@ public class CenterFragment extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
+                currentTab=position;
                 toggleTab(position);
             }
 
@@ -126,13 +127,19 @@ public class CenterFragment extends Fragment {
                             currentTab = (currentTab + 1) % fragmentList.size();
                             break;
                         case "ok":
-//                            switch (currentTab){
-//                                case 0:
+                            switch (currentTab){
+                                case 0:
                                     fpAdapter.toggleFlag();
                                     timeSettingFragment=new TimeSettingFragment();
                                     fpAdapter.replaceFragment(0,timeSettingFragment);
-//                                    break;
-//                            }
+                                    break;
+                                case 1:
+
+                                    break;
+                                case 2:
+
+                                    break;
+                            }
                             break;
                     }
                 }

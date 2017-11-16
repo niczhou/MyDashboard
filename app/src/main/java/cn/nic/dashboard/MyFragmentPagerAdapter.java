@@ -40,20 +40,25 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getItemPosition(Object object) {
-        return POSITION_NONE;
+        if(flag) {
+            return POSITION_NONE;
+        }else {
+//            return super.getItemPosition(object);
+            return POSITION_UNCHANGED;
+        }
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        if(position==0 && flag==true) {
+        if(flag) {
             Fragment f = (Fragment) super.instantiateItem(container, position);
             String fTag=f.getTag();
-            Log.d("nicdebug",fTag);
+//            Log.d("nicdebug",fTag);
+//            need to commit update UI;
             fm.beginTransaction().remove(f).commit();
             f = fragmentList.get(position);
-            fm.beginTransaction().add(container.getId(),f, fTag);
-            fm.beginTransaction().attach(f);
-            fm.beginTransaction().commit();
+            fm.beginTransaction().attach(f).commit();
+            fm.beginTransaction().add(container.getId(),f, fTag).commit();
             toggleFlag();
             return  f;
         }else {
