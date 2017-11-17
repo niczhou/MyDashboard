@@ -69,8 +69,8 @@ public class DynamicFragmentPagerAdapter extends FragmentPagerAdapter {
 
     public void replaceFragment(int position, Fragment fragment) {
         fragmentList.set(position,fragment);
+        //notify=>getItemPosition(POSITION_NONE)=>instantiateItem(remove&attach&commit)
         notifyDataSetChanged();
-
     }
 
     public void setFlag(boolean b){
