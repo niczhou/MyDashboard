@@ -48,7 +48,7 @@ public class CenterFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        return super.onCreateView(inflater, container, savedInstanceState);
+
         view=inflater.inflate(R.layout.fragment_center,container,false);
 
         initViews();
@@ -57,7 +57,7 @@ public class CenterFragment extends Fragment {
         fpAdapter=new DynamicFragmentPagerAdapter(fragmentManager,fragmentList);
         vp_container.setAdapter(fpAdapter);
         vp_container.setCurrentItem(currentTab);
-        toggleTab(currentTab);
+//        toggleTab(currentTab);
 
         vp_container.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -68,7 +68,7 @@ public class CenterFragment extends Fragment {
             @Override
             public void onPageSelected(int position) {
                 currentTab=position;
-                toggleTab(position);
+//                toggleTab(position);
             }
 
             @Override
@@ -81,9 +81,9 @@ public class CenterFragment extends Fragment {
     }
 
     private void initViews(){
-        tv_connect= (TextView) view.findViewById(R.id.tv_connect);
-        tv_display=(TextView) view.findViewById(R.id.tv_display);
-        tv_setting=(TextView) view.findViewById(R.id.tv_setting);
+//        tv_connect= (TextView) view.findViewById(R.id.tv_connect);
+//        tv_display=(TextView) view.findViewById(R.id.tv_display);
+//        tv_setting=(TextView) view.findViewById(R.id.tv_setting);
         vp_container=(ViewPager)view.findViewById(R.id.vp_container);
     }
     private void initList(){
@@ -95,20 +95,20 @@ public class CenterFragment extends Fragment {
         fragmentList.add(displayFragment);
         fragmentList.add(connectFragment);
 
-        tvTabList=new ArrayList<>();
-        tvTabList.add(tv_setting);
-        tvTabList.add(tv_display);
-        tvTabList.add(tv_connect);
+//        tvTabList=new ArrayList<>();
+//        tvTabList.add(tv_setting);
+//        tvTabList.add(tv_display);
+//        tvTabList.add(tv_connect);
     }
 
-    private void toggleTab(int tabID){
-        for(int i=0;i<tvTabList.size();i++){
-            tvTabList.get(i).setTextColor(getResources().getColor(R.color.colorTabUnselected));
-            tvTabList.get(i).setBackgroundColor(getResources().getColor(R.color.colorTabBackUnelected));
-        }
-        tvTabList.get(tabID).setTextColor(getResources().getColor(R.color.colorTabSelected));
-        tvTabList.get(tabID).setBackgroundColor(getResources().getColor(R.color.colorTabBackSelected));
-    }
+//    private void toggleTab(int tabID){
+//        for(int i=0;i<tvTabList.size();i++){
+//            tvTabList.get(i).setTextColor(getResources().getColor(R.color.colorTabUnselected));
+//            tvTabList.get(i).setBackgroundColor(getResources().getColor(R.color.colorTabBackUnelected));
+//        }
+//        tvTabList.get(tabID).setTextColor(getResources().getColor(R.color.colorTabSelected));
+//        tvTabList.get(tabID).setBackgroundColor(getResources().getColor(R.color.colorTabBackSelected));
+//    }
 
     @Override
     public void onResume() {
