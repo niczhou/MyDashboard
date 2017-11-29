@@ -31,6 +31,8 @@ public class ControllerFragment extends Fragment implements View.OnClickListener
     private Button btn_lamp_temper;
     private Button btn_lamp_light;
     private Button btn_lamp_foglamp;
+    private Button btn_poweron;
+    private Button btn_poweroff;
 
     private Bundle bundle;
     private Intent intent;
@@ -40,7 +42,7 @@ public class ControllerFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
-        View view=inflater.inflate(R.layout.fragment_controller,container,false);
+        View view=inflater.inflate(R.layout.fragment_control,container,false);
         btn_setting_left= (Button) view.findViewById(R.id.setting_left);
         btn_setting_right=(Button)view.findViewById(R.id.setting_right);
         btn_setting_up= (Button) view.findViewById(R.id.setting_up);
@@ -54,6 +56,8 @@ public class ControllerFragment extends Fragment implements View.OnClickListener
         btn_lamp_temper= (Button) view.findViewById(R.id.btn_lamp_temper);
         btn_lamp_light= (Button) view.findViewById(R.id.btn_lamp_light);
         btn_lamp_foglamp= (Button) view.findViewById(R.id.btn_lamp_foglamp);
+        btn_poweron= (Button) view.findViewById(R.id.btn_poweron);
+        btn_poweroff= (Button) view.findViewById(R.id.btn_poweroff);
 
         btn_setting_left.setOnClickListener(this);
         btn_setting_right.setOnClickListener(this);
@@ -67,6 +71,8 @@ public class ControllerFragment extends Fragment implements View.OnClickListener
         btn_lamp_temper.setOnClickListener(this);
         btn_lamp_light.setOnClickListener(this);
         btn_lamp_foglamp.setOnClickListener(this);
+        btn_poweron.setOnClickListener(this);
+        btn_poweroff.setOnClickListener(this);
 
         localBroadcastManager=LocalBroadcastManager.getInstance(getActivity());
         intent=new Intent();
@@ -169,6 +175,20 @@ public class ControllerFragment extends Fragment implements View.OnClickListener
                         break;
                     case R.id.btn_lamp_foglamp:
                         bundle.putString("lamp", "foglamp");
+                        break;
+                }
+                intent.putExtras(bundle);
+                localBroadcastManager.sendBroadcast(intent);
+                break;
+            case R.id.btn_poweron:
+            case R.id.btn_poweroff:
+                intent.setAction("cn.nic.power");
+                switch (v.getId()){
+                    case R.id.btn_poweron:
+                        bundle.putString("power","on");
+                        break;
+                    case R.id.btn_poweroff:
+                        bundle.putString("power","off");
                         break;
                 }
                 intent.putExtras(bundle);

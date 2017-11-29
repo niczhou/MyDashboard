@@ -172,7 +172,7 @@ public class SpeedView extends View {
         float ratio=2.43f;
         int widthMeasured=0;
         int heightMeasured=0;
-//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
         // 父容器传过来的宽度方向上的模式
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         // 父容器传过来的高度方向上的模式
