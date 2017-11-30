@@ -42,15 +42,15 @@
         <SeekBar
             android:id="@+id/sb_brake"
             android:layout_width="150dp"
-            android:layout_height="15dp"
+            android:layout_height="12dp"
             android:layout_marginTop="10dp"
             style="@android:style/Widget.SeekBar"/>
         <SeekBar
             android:id="@+id/sb_accelerator"
             android:layout_width="150dp"
-            android:layout_height="10dp"
+            android:layout_height="12dp"
             android:max="26"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             style="@android:style/Widget.SeekBar"/>
 
     </LinearLayout>

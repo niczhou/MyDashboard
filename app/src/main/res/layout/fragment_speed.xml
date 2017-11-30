@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -25,5 +25,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="98dp"
         android:layout_marginLeft="100dp"
-        app:layout_constraintLeft_toLeftOf="@+id/speedView" />
-</android.support.constraint.ConstraintLayout>
+        app:layout_constraintLeft_toLeftOf="@+id/speedView"
+        android:layout_marginStart="100dp" />
+</RelativeLayout>
