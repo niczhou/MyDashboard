@@ -169,42 +169,33 @@ public class SpeedView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        super.onMeasure(widthMeasured, heightMeasured);
         float ratio=2.43f;
-        int widthMeasured=222;
-        int heightMeasured=222;
+        int default_width=222;
+        int default_height=222;
+        int w = measureSize(widthMeasureSpec,default_width);
+        int h = measureSize(heightMeasureSpec,default_height);
 
-        // 父容器传过来的宽度方向上的模式
-        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-        // 父容器传过来的高度方向上的模式
-        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-
-        // 父容器传过来的宽度的值
-        int widthSize = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft()
-                - getPaddingRight();
-        // 父容器传过来的高度的值
-        int heightSize = MeasureSpec.getSize(heightMeasureSpec) - getPaddingLeft()
-                - getPaddingRight();
-
-        if (widthMode == MeasureSpec.EXACTLY
-                && heightMode == MeasureSpec.EXACTLY ) {
-            // 判断条件为，宽度模式为Exactly，也就是填充父窗体或者是指定宽度；
-            // 且高度模式不是Exaclty，代表设置的既不是fill_parent也不是具体的值，于是需要具体测量
-//            widthMeasured=MeasureSpec.makeMeasureSpec(widthSize,MeasureSpec.EXACTLY);
-//            heightMeasured=MeasureSpec.makeMeasureSpec(heightSize,MeasureSpec.EXACTLY);
-            widthMeasured=widthSize;
-            heightMeasured=heightSize;
-//            heightMeasureSpec = MeasureSpec.makeMeasureSpec(height,MeasureSpec.EXACTLY);
-//        } else if (widthMode != MeasureSpec.EXACTLY
-//                && heightMode == MeasureSpec.EXACTLY && ratio != 0.0f) {
-////            // 判断条件跟上面的相反，宽度方向和高度方向的条件互换
-////            // 表示高度确定，要测量宽度
-////            width = (int) (height * ratio + 0.5f);
-////
-////            widthMeasureSpec = MeasureSpec.makeMeasureSpec(width,
-////                    MeasureSpec.EXACTLY);
-        }
-
-        super.onMeasure(widthMeasured, heightMeasured);
+        setMeasuredDimension(w,h);
     }
+
+        //measure size
+        private int measureSize(int measureSpec,int defaultSize){
+            int mode = MeasureSpec.getMode(measureSpec);
+            int size = MeasureSpec.getSize(measureSpec);
+            int mSize = defaultSize;
+            switch (mode){
+                case MeasureSpec.EXACTLY:
+                    mSize = size;
+                    break;
+                case MeasureSpec.AT_MOST:
+                    mSize = defaultSize;
+                    break;
+                case MeasureSpec.UNSPECIFIED:
+                    mSize = defaultSize;
+                    break;
+            }
+            return mSize;
+        }
 
 }

@@ -37,8 +37,8 @@
 
             <fragment
                 android:id="@+id/frag_speed"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="222dp"
+                android:layout_height="222dp"
                 android:name="cn.nic.dashboard.SpeedFragment"
                 tools:layout="@layout/fragment_speed"/>
         </FrameLayout>
@@ -79,7 +79,8 @@
         <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="5">
+            android:layout_weight="5"
+            >
 
             <fragment
                 android:id="@+id/frag_rotate"
